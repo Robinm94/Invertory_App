@@ -12,9 +12,39 @@ namespace Inventory
 {
     public partial class NewInventoryItemForm : Form
     {
+        public InventoryItem Item { get; set; }
+
         public NewInventoryItemForm()
         {
             InitializeComponent();
+        }
+
+        private void BtnSaveItem_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtItemNo.Text) && long.TryParse(txtItemNo.Text, out long itemNo))
+            {
+                MessageBox.Show("Invalid Item Number", "Invalid Value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (String.IsNullOrEmpty(txtDesc.Text))
+            {
+                MessageBox.Show("Invalid Description", "Invalid Value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Item = new InventoryItem()
+            {
+                ItemNo = Convert.ToInt32(txtItemNo.Text),
+                Description = txtDesc.Text,
+                Price = numPrice.Value
+            };
+            this.Close();
+
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            Item = null;
+            this.Close();
         }
     }
 }

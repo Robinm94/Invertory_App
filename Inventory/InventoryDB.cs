@@ -12,12 +12,10 @@ namespace Inventory
         private const string Path = @"..\..\..\grocery_inventory_items.txt";
         private const Char Delimiter = '|';
 
-
         public static List<InventoryItem> GetItems()
         {
             // create the list
             List<InventoryItem> items = new List<InventoryItem>();
-
 
             // create the object for the input stream for a text file
             using (StreamReader textIn =
@@ -48,7 +46,6 @@ namespace Inventory
             return items;
         }
 
-
         public static void SaveItems(List<InventoryItem> items)
         {
             // create the output stream for a text file that exists
@@ -59,14 +56,11 @@ namespace Inventory
                 // write each item
                 foreach (InventoryItem item in items)
                 {
-                    textOut.Write(item.ItemNo + Delimiter);
-                    textOut.Write(item.Description + Delimiter);
+                    textOut.Write(item.ItemNo.ToString() + Delimiter.ToString());
+                    textOut.Write(item.Description + Delimiter.ToString());
                     textOut.WriteLine(item.Price);
                 }
             }
-
-
-
 
             // close the output stream for the text file
             //textOut.Close();

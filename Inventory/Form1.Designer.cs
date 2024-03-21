@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstItems = new System.Windows.Forms.ListBox();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.btnDeleteItem = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listBox1
+            // lstItems
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(15, 15);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(434, 284);
-            this.listBox1.TabIndex = 0;
+            this.lstItems.FormattingEnabled = true;
+            this.lstItems.ItemHeight = 20;
+            this.lstItems.Location = new System.Drawing.Point(15, 15);
+            this.lstItems.Margin = new System.Windows.Forms.Padding(4);
+            this.lstItems.Name = "lstItems";
+            this.lstItems.Size = new System.Drawing.Size(434, 284);
+            this.lstItems.TabIndex = 0;
             // 
             // btnAddItem
             // 
@@ -62,6 +62,7 @@
             this.btnDeleteItem.TabIndex = 2;
             this.btnDeleteItem.Text = "&Delete Item";
             this.btnDeleteItem.UseVisualStyleBackColor = true;
+            this.btnDeleteItem.Click += new System.EventHandler(this.BtnDeleteItem_Click);
             // 
             // btnExit
             // 
@@ -83,19 +84,20 @@
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnDeleteItem);
             this.Controls.Add(this.btnAddItem);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lstItems);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "InventoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory";
+            this.Load += new System.EventHandler(this.InventoryForm_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstItems;
         private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.Button btnDeleteItem;
         private System.Windows.Forms.Button btnExit;

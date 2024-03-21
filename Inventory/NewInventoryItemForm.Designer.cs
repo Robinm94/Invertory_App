@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtItemNo = new System.Windows.Forms.TextBox();
+            this.txtDesc = new System.Windows.Forms.TextBox();
             this.btnSaveItem = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblItemNum = new System.Windows.Forms.Label();
             this.lblDsrptn = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.numPrice = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrice)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtItemNo
             // 
-            this.textBox1.Location = new System.Drawing.Point(218, 86);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(230, 26);
-            this.textBox1.TabIndex = 0;
+            this.txtItemNo.Location = new System.Drawing.Point(218, 86);
+            this.txtItemNo.Name = "txtItemNo";
+            this.txtItemNo.Size = new System.Drawing.Size(230, 26);
+            this.txtItemNo.TabIndex = 0;
             // 
-            // textBox2
+            // txtDesc
             // 
-            this.textBox2.Location = new System.Drawing.Point(218, 149);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(230, 26);
-            this.textBox2.TabIndex = 1;
+            this.txtDesc.Location = new System.Drawing.Point(218, 149);
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.Size = new System.Drawing.Size(230, 26);
+            this.txtDesc.TabIndex = 1;
             // 
             // btnSaveItem
             // 
@@ -61,6 +61,7 @@
             this.btnSaveItem.TabIndex = 3;
             this.btnSaveItem.Text = "&Save Item";
             this.btnSaveItem.UseVisualStyleBackColor = true;
+            this.btnSaveItem.Click += new System.EventHandler(this.BtnSaveItem_Click);
             // 
             // btnCancel
             // 
@@ -70,6 +71,7 @@
             this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // lblItemNum
             // 
@@ -98,38 +100,38 @@
             this.lblPrice.TabIndex = 7;
             this.lblPrice.Text = "Price:";
             // 
-            // numericUpDown1
+            // numPrice
             // 
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.Increment = new decimal(new int[] {
+            this.numPrice.DecimalPlaces = 2;
+            this.numPrice.Increment = new decimal(new int[] {
             5,
             0,
             0,
             65536});
-            this.numericUpDown1.Location = new System.Drawing.Point(218, 213);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(161, 26);
-            this.numericUpDown1.TabIndex = 8;
+            this.numPrice.Location = new System.Drawing.Point(218, 213);
+            this.numPrice.Name = "numPrice";
+            this.numPrice.Size = new System.Drawing.Size(161, 26);
+            this.numPrice.TabIndex = 8;
             // 
             // NewInventoryItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 407);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.numPrice);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblDsrptn);
             this.Controls.Add(this.lblItemNum);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSaveItem);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDesc);
+            this.Controls.Add(this.txtItemNo);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NewInventoryItemForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New Inventory Item";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,13 +139,13 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtItemNo;
+        private System.Windows.Forms.TextBox txtDesc;
         private System.Windows.Forms.Button btnSaveItem;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblItemNum;
         private System.Windows.Forms.Label lblDsrptn;
         private System.Windows.Forms.Label lblPrice;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numPrice;
     }
 }
