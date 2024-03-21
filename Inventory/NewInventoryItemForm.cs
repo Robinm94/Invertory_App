@@ -21,7 +21,7 @@ namespace Inventory
 
         private void BtnSaveItem_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txtItemNo.Text) && long.TryParse(txtItemNo.Text, out long itemNo))
+            if (String.IsNullOrEmpty(txtItemNo.Text) || !Int32.TryParse(txtItemNo.Text, out Int32 itemNo))
             {
                 MessageBox.Show("Invalid Item Number", "Invalid Value", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -33,7 +33,7 @@ namespace Inventory
             }
             Item = new InventoryItem()
             {
-                ItemNo = Convert.ToInt32(txtItemNo.Text),
+                ItemNo = itemNo,
                 Description = txtDesc.Text,
                 Price = numPrice.Value
             };

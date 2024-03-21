@@ -56,8 +56,8 @@ namespace Inventory
                 // write each item
                 foreach (InventoryItem item in items)
                 {
-                    textOut.Write(item.ItemNo.ToString() + Delimiter.ToString());
-                    textOut.Write(item.Description + Delimiter.ToString());
+                    textOut.Write(item.ItemNo.ToString() + Delimiter);
+                    textOut.Write(item.Description + Delimiter);
                     textOut.WriteLine(item.Price);
                 }
             }

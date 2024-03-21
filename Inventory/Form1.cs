@@ -12,16 +12,14 @@ namespace Inventory
 {
     public partial class InventoryForm : Form
     {
-        private List<InventoryItem> inventoryItems;
+        //private List<InventoryItem> inventoryItems;
         public InventoryForm()
         {
             InitializeComponent();
-            inventoryItems = new List<InventoryItem>();
         }
 
         private void InventoryForm_Load(object sender, EventArgs e)
         {
-            inventoryItems = InventoryDB.GetItems();
             LoadItems();
         }
 
@@ -41,8 +39,7 @@ namespace Inventory
             InventoryItem item = (form as NewInventoryItemForm).Item;
             if (item != null)
             {
-                inventoryItems.Add(item);
-                InventoryDB.SaveItems(inventoryItems); 
+                InventoryDB.SaveItems(InventoryDB.GetItems().Append(item).ToList()); 
                 LoadItems();
             }
 
@@ -51,8 +48,7 @@ namespace Inventory
         private void LoadItems()
         {
             lstItems.Items.Clear();
-            inventoryItems = InventoryDB.GetItems();
-            foreach (InventoryItem item in inventoryItems)
+            foreach (InventoryItem item in InventoryDB.GetItems())
             {
                 lstItems.Items.Add(item);
             }
@@ -62,9 +58,14 @@ namespace Inventory
         {
             if (lstItems.SelectedIndex != -1)
             {
-                inventoryItems.RemoveAt(lstItems.SelectedIndex);
-                InventoryDB.SaveItems(inventoryItems);
-                LoadItems();
+                DialogResult d = MessageBox.Show("Do you want to delete this item?", "Delete Info", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (d == DialogResult.Yes)
+                {
+                    List<InventoryItem> inventoryItems = InventoryDB.GetItems();
+                    inventoryItems.RemoveAt(lstItems.SelectedIndex);
+                    InventoryDB.SaveItems(inventoryItems);
+                    LoadItems();
+                }
             }
             else
             {
