@@ -23,12 +23,17 @@ namespace Inventory
         {
             if (String.IsNullOrEmpty(txtItemNo.Text) || !Int32.TryParse(txtItemNo.Text, out Int32 itemNo))
             {
-                MessageBox.Show("Invalid Item Number", "Invalid Value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid Item Number", "Invalid Item Number", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (String.IsNullOrEmpty(txtDesc.Text))
             {
-                MessageBox.Show("Invalid Description", "Invalid Value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Description cannot be empty", "Invalid Description", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (numPrice.Value == 0)
+            {
+                MessageBox.Show("Price cannot be 0", "Invalid Price", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             Item = new InventoryItem()
